@@ -1,0 +1,21 @@
+name: v1.1.0 trial
+
+# Throwaway: the released workflow at the major tag and at the exact tag.
+on:
+  push:
+    branches: [ verify-v1-1-0 ]
+
+jobs:
+  major:
+    permissions:
+      contents: read
+    uses: TirSystem/github-action/.gitea/workflows/quality-checks.yml@v1
+    with:
+      languages: shell
+  exact:
+    permissions:
+      contents: read
+    uses: TirSystem/github-action/.gitea/workflows/quality-checks.yml@v1.1.0
+    with:
+      languages: shell
+      tools-ref: v1.1.0
